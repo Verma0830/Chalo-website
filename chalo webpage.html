@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ride Sharing App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Chalo Design Tokens ── */
+    :root {
+      --color-primary:       #F95C00;
+      --color-primary-dim:   rgba(249,92,0,0.12);
+      --color-primary-hover: #CC4A00;
+
+      --color-success:       #34D399;
+      --color-danger:        #E74C3C;
+      --color-warning:       #F39C12;
+
+      --bg:        #080C14;
+      --surface-1: #0E1220;
+      --surface-2: #141828;
+      --surface-3: #1A2030;
+      --surface-4: #202840;
+
+      --border-subtle:  rgba(255,255,255,0.05);
+      --border-default: rgba(255,255,255,0.09);
+      --border-strong:  rgba(255,255,255,0.16);
+
+      --text-primary:   #EEF0F8;
+      --text-secondary: #8891AA;
+      --text-tertiary:  #545E78;
+      --text-accent:    #F95C00;
+
+      --font-display: 'Epilogue', sans-serif;
+      --font-body:    'Manrope', sans-serif;
+
+      --r-sm:   8px;
+      --r-md:   12px;
+      --r-lg:   16px;
+      --r-xl:   20px;
+      --r-2xl:  24px;
+      --r-full: 9999px;
+
+      --shadow-md:      0 4px 16px rgba(0,0,0,0.4);
+      --shadow-lg:      0 8px 32px rgba(0,0,0,0.5);
+      --shadow-saffron: 0 0 32px rgba(249,92,0,0.2);
+
+      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --duration-fast:   150ms;
+      --duration-normal: 250ms;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Container ── */
+    .container {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding: 40px 24px 32px;
+      background: var(--surface-1);
+      border: 1px solid var(--border-default);
+      border-radius: var(--r-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(249,92,0,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-primary-dim);
+      border: 1px solid rgba(249,92,0,0.25);
+      color: var(--color-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--r-full);
+      margin-bottom: 16px;
+    }
+
+    .logo-badge::before { content: '🚗'; font-size: 0.85rem; }
+
+    header h1 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #fff 30%, var(--color-primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* ── Form Cards ── */
+    .form-section {
+      background: var(--surface-1);
+      border: 1px solid var(--border-default);
+      border-radius: var(--r-2xl);
+      padding: 28px;
+      transition: border-color var(--duration-normal) var(--ease-out);
+    }
+
+    .form-section:hover {
+      border-color: var(--border-strong);
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .icon-share { background: var(--color-primary-dim); }
+    .icon-track { background: rgba(52,211,153,0.1); }
+
+    .form-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .form-section h2 span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      margin-top: 2px;
+    }
+
+    /* ── Form Elements ── */
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--surface-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--r-lg);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color var(--duration-fast) var(--ease-out),
+                  box-shadow var(--duration-fast) var(--ease-out);
+    }
+
+    input[type="text"]::placeholder { color: var(--text-tertiary); }
+
+    input[type="text"]:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(249,92,0,0.15);
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: var(--r-lg);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-out);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: var(--shadow-saffron);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 0 40px rgba(249,92,0,0.35);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-success {
+      background: rgba(52,211,153,0.15);
+      color: var(--color-success);
+      border: 1px solid rgba(52,211,153,0.25);
+    }
+
+    .btn-success:hover {
+      background: rgba(52,211,153,0.22);
+      transform: translateY(-1px);
+    }
+
+    /* ── Result Box ── */
+    .result {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: var(--surface-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--r-lg);
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      animation: fadeSlideIn var(--duration-normal) var(--ease-out);
+    }
+
+    .result.show { display: block; }
+
+    .result.success {
+      border-color: rgba(52,211,153,0.25);
+      background: rgba(52,211,153,0.06);
+      color: var(--color-success);
+    }
+
+    .result.error {
+      border-color: rgba(231,76,60,0.25);
+      background: rgba(231,76,60,0.06);
+      color: var(--color-danger);
+    }
+
+    .result-token {
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-tertiary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-subtle);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      padding: 8px;
+    }
+
+    footer a { color: var(--color-primary); text-decoration: none; }
+
+    /* ── Animation ── */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="logo-badge">Ride Sharing</div>
+      <h1>Chalo ਚਲੋ</h1>
+      <p>Share your ride or track a trip with a secure token</p>
+    </header>
+
+    <!-- Share a Ride -->
+    <section class="form-section">
+      <div class="section-label">
+        <div class="section-icon icon-share">🔗</div>
+        <h2>Share a Ride <span>Generate a secure token for your trip</span></h2>
+      </div>
+      <form id="shareRideForm">
+        <div class="field">
+          <label for="rideId">Ride ID</label>
+          <input type="text" id="rideId" name="rideId" placeholder="e.g., 12345" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Token →</button>
+      </form>
+      <div id="shareResult" class="result"></div>
+    </section>
+
+    <div class="divider">or</div>
+
+    <!-- Track a Trip -->
+    <section class="form-section">
+      <div class="section-label">
+        <div class="section-icon icon-track">📍</div>
+        <h2>Track a Trip <span>Enter your token to view live location</span></h2>
+      </div>
+      <form id="trackTripForm">
+        <div class="field">
+          <label for="token">Secure Token</label>
+          <input type="text" id="token" name="token" placeholder="e.g., abc123" required />
+        </div>
+        <button type="submit" class="btn btn-success">View Trip →</button>
+      </form>
+      <div id="trackResult" class="result"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 <a href="#">Ride Sharing App</a>. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Generate a random token
+    function generateToken(rideId) {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let token = '';
+      for (let i = 0; i < 8; i++) token += chars[Math.floor(Math.random() * chars.length)];
+      return `RS-${rideId}-${token}`;
+    }
+
+    // Share Ride Form
+    document.getElementById('shareRideForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const rideId = document.getElementById('rideId').value.trim();
+      const resultEl = document.getElementById('shareResult');
+      if (!rideId) return;
+      const token = generateToken(rideId);
+      resultEl.className = 'result success show';
+      resultEl.innerHTML = `✅ Token generated for Ride #${rideId}<span class="result-token">${token}</span>`;
+    });
+
+    // Track Trip Form
+    document.getElementById('trackTripForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const token = document.getElementById('token').value.trim();
+      const resultEl = document.getElementById('trackResult');
+      if (!token) return;
+      if (token.startsWith('RS-')) {
+        resultEl.className = 'result success show';
+        resultEl.innerHTML = `📍 Trip found! Tracking live location for token <span class="result-token">${token}</span>`;
+      } else {
+        resultEl.className = 'result error show';
+        resultEl.innerHTML = `❌ Invalid token. Please check and try again.`;
+      }
+    });
+  </script>
+</body>
+</html>
