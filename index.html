@@ -3,30 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chalo — Complete Bike Ride-Hailing Platform</title>
+<title>Chalo ਚਲੋ — Ride Smart. Ride Safe.</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700&family=Noto+Sans+Gurmukhi:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   TOKENS
+TOKENS
 ============================================================ */
 :root {
-  --saffron: #F95C00;
-  --saffron-d: #CC4A00;
-  --saffron-10: rgba(249,92,0,0.10);
-  --saffron-15: rgba(249,92,0,0.15);
-  --navy: #0F1629;
-  --navy-mid: #2D3461;
-  --green: #34D399;
-  --green-d: #10B981;
-  --green-10: rgba(52,211,153,0.10);
-  --bg: #FFFDF9;
-  --bg-warm: #FFF8F0;
-  --white: #FFFFFF;
-  --tp: #374151;
-  --ts: #6B7280;
-  --border: #E5E7EB;
-  --ease-out: cubic-bezier(0.16,1,0.3,1);
-  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+--saffron: #F95C00;
+--saffron-d: #CC4A00;
+--saffron-10: rgba(249,92,0,0.10);
+--saffron-15: rgba(249,92,0,0.15);
+--navy: #0F1629;
+--navy-mid: #2D3461;
+--green: #34D399;
+--green-d: #10B981;
+--green-10: rgba(52,211,153,0.10);
+--bg: #FFFDF9;
+--bg-warm: #FFF8F0;
+--white: #FFFFFF;
+--tp: #374151;
+--ts: #6B7280;
+--border: #E5E7EB;
+--ease-out: cubic-bezier(0.16,1,0.3,1);
+--ease-spring: cubic-bezier(0.34,1.56,0.64,1);
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -34,937 +34,1945 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
-  font-family: 'Poppins', sans-serif;
-  color: var(--tp);
-  overflow-x: hidden;
+background: var(--bg);
+font-family: 'Poppins', sans-serif;
+color: var(--tp);
+overflow-x: hidden;
 }
 
 /* ============================================================
-   NAVBAR
+NAVBAR
 ============================================================ */
 .navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  padding: 0 40px;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255,253,249,0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(229,231,235,0.6);
-  transition: all 300ms;
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+padding: 0 40px;
+height: 72px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: rgba(255,253,249,0.85);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border-bottom: 1px solid rgba(229,231,235,0.6);
+transition: all 300ms;
 }
 .navbar.scrolled {
-  height: 64px;
-  background: rgba(255,253,249,0.97);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+height: 64px;
+background: rgba(255,253,249,0.97);
+box-shadow: 0 2px 20px rgba(0,0,0,0.08);
 }
 .nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
+display: flex;
+align-items: center;
+gap: 10px;
+text-decoration: none;
 }
 .nav-logo-text {
-  font-family: 'Fraunces', serif;
-  font-size: 26px;
-  font-weight: 900;
-  color: var(--saffron);
-  letter-spacing: -0.5px;
+font-family: 'Fraunces', serif;
+font-size: 26px;
+font-weight: 900;
+color: var(--saffron);
+letter-spacing: -0.5px;
 }
 .nav-logo-punjabi {
-  font-family: 'Noto Sans Gurmukhi', sans-serif;
-  font-size: 18px;
-  color: var(--navy);
-  opacity: 0.5;
+font-family: 'Noto Sans Gurmukhi', sans-serif;
+font-size: 18px;
+color: var(--navy);
+opacity: 0.5;
 }
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
+display: flex;
+align-items: center;
+gap: 32px;
+list-style: none;
 }
 .nav-links a {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ts);
-  text-decoration: none;
-  transition: color 150ms;
+font-size: 14px;
+font-weight: 600;
+color: var(--ts);
+text-decoration: none;
+transition: color 150ms;
 }
 .nav-links a:hover { color: var(--navy); }
-.nav-links a.active { color: var(--saffron); font-weight: 700; }
 .nav-cta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+display: flex;
+align-items: center;
+gap: 12px;
 }
 .btn-nav-outline {
-  height: 40px;
-  padding: 0 20px;
-  border-radius: 8px;
-  border: 1.5px solid var(--saffron);
-  background: transparent;
-  color: var(--saffron);
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 150ms;
+height: 40px;
+padding: 0 20px;
+border-radius: 8px;
+border: 1.5px solid var(--saffron);
+background: transparent;
+color: var(--saffron);
+font-family: 'Poppins', sans-serif;
+font-size: 14px;
+font-weight: 700;
+cursor: pointer;
+transition: all 150ms;
 }
 .btn-nav-outline:hover { background: var(--saffron-10); }
 .btn-nav-fill {
-  height: 40px;
-  padding: 0 20px;
-  border-radius: 8px;
-  border: none;
-  background: var(--saffron);
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 150ms;
-  box-shadow: 0 4px 12px rgba(249,92,0,0.3);
+height: 40px;
+padding: 0 20px;
+border-radius: 8px;
+border: none;
+background: var(--saffron);
+color: white;
+font-family: 'Poppins', sans-serif;
+font-size: 14px;
+font-weight: 700;
+cursor: pointer;
+transition: all 150ms;
+box-shadow: 0 4px 12px rgba(249,92,0,0.3);
 }
 .btn-nav-fill:hover { background: var(--saffron-d); transform: translateY(-1px); }
 
 /* ============================================================
-   HERO
+HERO
 ============================================================ */
 .hero {
-  min-height: 100vh;
-  padding-top: 72px;
-  background: var(--navy);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
+min-height: 100vh;
+padding-top: 72px;
+background: var(--navy);
+position: relative;
+overflow: hidden;
+display: flex;
+align-items: center;
 }
 
 /* Background texture */
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 30% 50%, rgba(249,92,0,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 80%, rgba(52,211,153,0.06) 0%, transparent 60%);
-  pointer-events: none;
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 60% 50% at 30% 50%, rgba(249,92,0,0.12) 0%, transparent 70%),
+radial-gradient(ellipse 40% 60% at 80% 80%, rgba(52,211,153,0.06) 0%, transparent 60%);
+pointer-events: none;
 }
 .hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
+position: absolute;
+inset: 0;
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size: 60px 60px;
+pointer-events: none;
 }
 /* Decorative circles */
 .hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
+position: absolute;
+border-radius: 50%;
+pointer-events: none;
 }
 .hero-orb-1 {
-  width: 600px; height: 600px;
-  top: -200px; right: -100px;
-  background: radial-gradient(circle, rgba(249,92,0,0.08) 0%, transparent 70%);
+width: 600px; height: 600px;
+top: -200px; right: -100px;
+background: radial-gradient(circle, rgba(249,92,0,0.08) 0%, transparent 70%);
 }
 .hero-orb-2 {
-  width: 400px; height: 400px;
-  bottom: -100px; left: -100px;
-  background: radial-gradient(circle, rgba(52,211,153,0.06) 0%, transparent 70%);
+width: 400px; height: 400px;
+bottom: -100px; left: -100px;
+background: radial-gradient(circle, rgba(52,211,153,0.06) 0%, transparent 70%);
 }
 
 .hero-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 80px;
-  align-items: center;
+position: relative;
+z-index: 2;
+width: 100%;
+max-width: 1280px;
+margin: 0 auto;
+padding: 60px 40px;
+display: grid;
+grid-template-columns: 1fr 420px;
+gap: 80px;
+align-items: center;
 }
 
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(249,92,0,0.12);
-  border: 1px solid rgba(249,92,0,0.25);
-  border-radius: 9999px;
-  padding: 6px 16px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--saffron);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-  animation: fade-up 0.6s var(--ease-out) both;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: rgba(249,92,0,0.12);
+border: 1px solid rgba(249,92,0,0.25);
+border-radius: 9999px;
+padding: 6px 16px;
+font-size: 12px;
+font-weight: 700;
+color: var(--saffron);
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-bottom: 28px;
+animation: fade-up 0.6s var(--ease-out) both;
 }
 .hero-badge-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--saffron);
-  animation: pulse-dot 2s ease-in-out infinite;
+width: 6px; height: 6px;
+border-radius: 50%;
+background: var(--saffron);
+animation: pulse-dot 2s ease-in-out infinite;
 }
 @keyframes pulse-dot {
-  0%,100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.4); }
+0%,100% { opacity: 1; transform: scale(1); }
+50% { opacity: 0.5; transform: scale(1.4); }
 }
 
 .hero-title {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(52px, 5vw, 80px);
-  font-weight: 900;
-  color: white;
-  line-height: 1.0;
-  letter-spacing: -2px;
-  margin-bottom: 8px;
-  animation: fade-up 0.6s 0.1s var(--ease-out) both;
+font-family: 'Fraunces', serif;
+font-size: clamp(52px, 5vw, 80px);
+font-weight: 900;
+color: white;
+line-height: 1.0;
+letter-spacing: -2px;
+margin-bottom: 8px;
+animation: fade-up 0.6s 0.1s var(--ease-out) both;
 }
 .hero-title-gurmukhi {
-  font-family: 'Noto Sans Gurmukhi', sans-serif;
-  font-size: clamp(36px, 3.5vw, 56px);
-  font-weight: 700;
-  color: var(--saffron);
-  display: block;
-  letter-spacing: -1px;
-  margin-bottom: 16px;
-  animation: fade-up 0.6s 0.15s var(--ease-out) both;
+font-family: 'Noto Sans Gurmukhi', sans-serif;
+font-size: clamp(36px, 3.5vw, 56px);
+font-weight: 700;
+color: var(--saffron);
+display: block;
+letter-spacing: -1px;
+margin-bottom: 16px;
+animation: fade-up 0.6s 0.15s var(--ease-out) both;
 }
 .hero-sub {
-  font-size: clamp(16px, 1.5vw, 20px);
-  font-weight: 400;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.6;
-  max-width: 480px;
-  margin-bottom: 40px;
-  animation: fade-up 0.6s 0.2s var(--ease-out) both;
+font-size: clamp(16px, 1.5vw, 20px);
+font-weight: 400;
+color: rgba(255,255,255,0.55);
+line-height: 1.6;
+max-width: 480px;
+margin-bottom: 40px;
+animation: fade-up 0.6s 0.2s var(--ease-out) both;
 }
 .hero-sub strong {
-  color: rgba(255,255,255,0.85);
-  font-weight: 600;
+color: rgba(255,255,255,0.85);
+font-weight: 600;
 }
 
 .hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  animation: fade-up 0.6s 0.3s var(--ease-out) both;
+display: flex;
+gap: 14px;
+flex-wrap: wrap;
+animation: fade-up 0.6s 0.3s var(--ease-out) both;
 }
 .btn-hero-primary {
-  height: 58px;
-  padding: 0 32px;
-  border-radius: 12px;
-  border: none;
-  background: var(--saffron);
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 200ms var(--ease-out);
-  box-shadow: 0 8px 24px rgba(249,92,0,0.4);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
+height: 58px;
+padding: 0 32px;
+border-radius: 12px;
+border: none;
+background: var(--saffron);
+color: white;
+font-family: 'Poppins', sans-serif;
+font-size: 16px;
+font-weight: 700;
+cursor: pointer;
+transition: all 200ms var(--ease-out);
+box-shadow: 0 8px 24px rgba(249,92,0,0.4);
+display: flex;
+align-items: center;
+gap: 10px;
+text-decoration: none;
 }
 .btn-hero-primary:hover {
-  background: var(--saffron-d);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(249,92,0,0.5);
+background: var(--saffron-d);
+transform: translateY(-2px);
+box-shadow: 0 12px 32px rgba(249,92,0,0.5);
 }
 .btn-hero-outline {
-  height: 58px;
-  padding: 0 32px;
-  border-radius: 12px;
-  border: 1.5px solid rgba(255,255,255,0.2);
-  background: transparent;
-  color: rgba(255,255,255,0.8);
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 200ms;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
+height: 58px;
+padding: 0 32px;
+border-radius: 12px;
+border: 1.5px solid rgba(255,255,255,0.2);
+background: transparent;
+color: rgba(255,255,255,0.8);
+font-family: 'Poppins', sans-serif;
+font-size: 16px;
+font-weight: 600;
+cursor: pointer;
+transition: all 200ms;
+display: flex;
+align-items: center;
+gap: 10px;
+text-decoration: none;
 }
 .btn-hero-outline:hover {
-  border-color: rgba(255,255,255,0.5);
-  background: rgba(255,255,255,0.05);
-  color: white;
+border-color: rgba(255,255,255,0.5);
+background: rgba(255,255,255,0.05);
+color: white;
 }
 
 .hero-stats {
-  display: flex;
-  gap: 40px;
-  margin-top: 56px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  animation: fade-up 0.6s 0.4s var(--ease-out) both;
+display: flex;
+gap: 40px;
+margin-top: 56px;
+padding-top: 40px;
+border-top: 1px solid rgba(255,255,255,0.08);
+animation: fade-up 0.6s 0.4s var(--ease-out) both;
 }
 .stat-item {}
 .stat-num {
-  font-family: 'Fraunces', serif;
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--saffron);
-  letter-spacing: -1px;
-  line-height: 1;
+font-family: 'Fraunces', serif;
+font-size: 32px;
+font-weight: 900;
+color: var(--saffron);
+letter-spacing: -1px;
+line-height: 1;
 }
 .stat-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 4px;
+font-size: 12px;
+font-weight: 600;
+color: rgba(255,255,255,0.4);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-top: 4px;
 }
 
 /* Hero phone */
 .hero-phone-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: fade-up 0.7s 0.2s var(--ease-out) both;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+animation: fade-up 0.7s 0.2s var(--ease-out) both;
 }
 .hero-phone-glow {
-  position: absolute;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(249,92,0,0.2) 0%, transparent 70%);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+position: absolute;
+width: 300px; height: 300px;
+background: radial-gradient(circle, rgba(249,92,0,0.2) 0%, transparent 70%);
+top: 50%; left: 50%;
+transform: translate(-50%, -50%);
+pointer-events: none;
 }
 .hero-phone {
-  width: 280px;
-  height: 580px;
-  background: var(--bg);
-  border-radius: 36px;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 8px #111218,
-    0 0 0 9px #1E2030,
-    0 40px 80px rgba(0,0,0,0.6);
-  position: relative;
-  flex-shrink: 0;
+width: 280px;
+height: 580px;
+background: var(--bg);
+border-radius: 36px;
+overflow: hidden;
+box-shadow:
+0 0 0 8px #111218,
+0 0 0 9px #1E2030,
+0 40px 80px rgba(0,0,0,0.6);
+position: relative;
+flex-shrink: 0;
 }
 .phone-notch {
-  position: absolute;
-  top: 12px; left: 50%;
-  transform: translateX(-50%);
-  width: 90px; height: 26px;
-  background: #0A0C14;
-  border-radius: 14px;
-  z-index: 100;
+position: absolute;
+top: 12px; left: 50%;
+transform: translateX(-50%);
+width: 90px; height: 26px;
+background: #0A0C14;
+border-radius: 14px;
+z-index: 100;
 }
 .phone-screen {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
+width: 100%;
+height: 100%;
+position: relative;
+overflow: hidden;
 }
 
 /* Hero phone screen - animated home screen */
 .phone-home-screen {
-  width: 100%; height: 100%;
-  background: var(--bg);
-  display: flex;
-  flex-direction: column;
+width: 100%; height: 100%;
+background: var(--bg);
+display: flex;
+flex-direction: column;
 }
 .phone-status {
-  height: 46px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 0 22px 8px;
-  flex-shrink: 0;
+height: 46px;
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+padding: 0 22px 8px;
+flex-shrink: 0;
 }
 .phone-time { font-size: 12px; font-weight: 700; color: var(--navy); }
 .phone-icons { font-size: 11px; color: var(--navy); }
 
 /* Mini map */
 .phone-map {
-  flex: 1;
-  position: relative;
-  background: #E8F0D5;
-  overflow: hidden;
+flex: 1;
+position: relative;
+background: #E8F0D5;
+overflow: hidden;
 }
 .phone-map-bg {
-  position: absolute; inset: 0;
-  background:
-    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(200,210,180,0.5) 24px, rgba(200,210,180,0.5) 25px),
-    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(200,210,180,0.5) 24px, rgba(200,210,180,0.5) 25px),
-    #E8F0D5;
+position: absolute; inset: 0;
+background:
+repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(200,210,180,0.5) 24px, rgba(200,210,180,0.5) 25px),
+repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(200,210,180,0.5) 24px, rgba(200,210,180,0.5) 25px),
+#E8F0D5;
 }
 .phone-road-h { position: absolute; height: 8px; left: 0; right: 0; background: rgba(255,255,255,0.95); border-radius: 0; }
 .phone-road-v { position: absolute; width: 8px; top: 0; bottom: 0; background: rgba(255,255,255,0.95); }
 .phone-car {
-  position: absolute;
-  width: 36px; height: 36px;
-  background: white;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  border: 2px solid var(--navy);
-  animation: car-drive 4s ease-in-out infinite;
-  z-index: 10;
+position: absolute;
+width: 36px; height: 36px;
+background: white;
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+font-size: 18px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+border: 2px solid var(--navy);
+animation: car-drive 4s ease-in-out infinite;
+z-index: 10;
 }
 @keyframes car-drive {
-  0%, 100% { transform: translate(-50%,-50%) translateX(0); }
-  50% { transform: translate(-50%,-50%) translateX(20px); }
+0%, 100% { transform: translate(-50%,-50%) translateX(0); }
+50% { transform: translate(-50%,-50%) translateX(20px); }
 }
 .phone-dest-pin {
-  position: absolute;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transform: translate(-50%, -100%);
-  animation: pin-bounce 3s ease-in-out infinite;
+position: absolute;
+z-index: 10;
+display: flex;
+flex-direction: column;
+align-items: center;
+transform: translate(-50%, -100%);
+animation: pin-bounce 3s ease-in-out infinite;
 }
 @keyframes pin-bounce {
-  0%,100% { transform: translate(-50%,-100%) translateY(0); }
-  50% { transform: translate(-50%,-100%) translateY(-4px); }
+0%,100% { transform: translate(-50%,-100%) translateY(0); }
+50% { transform: translate(-50%,-100%) translateY(-4px); }
 }
 .phone-pin-icon {
-  width: 28px; height: 28px;
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  background: var(--saffron);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 10px rgba(249,92,0,0.4);
+width: 28px; height: 28px;
+border-radius: 50% 50% 50% 0;
+transform: rotate(-45deg);
+background: var(--saffron);
+display: flex; align-items: center; justify-content: center;
+box-shadow: 0 4px 10px rgba(249,92,0,0.4);
 }
 .phone-pin-icon span { transform: rotate(45deg); font-size: 12px; }
 
 /* Bottom sheet */
 .phone-sheet {
-  background: white;
-  border-radius: 20px 20px 0 0;
-  padding: 12px 16px 16px;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-  flex-shrink: 0;
-  position: relative;
-  z-index: 20;
+background: white;
+border-radius: 20px 20px 0 0;
+padding: 12px 16px 16px;
+box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+flex-shrink: 0;
+position: relative;
+z-index: 20;
 }
 .phone-sheet-handle {
-  width: 36px; height: 4px;
-  background: #E5E7EB;
-  border-radius: 2px;
-  margin: 0 auto 12px;
+width: 36px; height: 4px;
+background: #E5E7EB;
+border-radius: 2px;
+margin: 0 auto 12px;
 }
 .phone-sheet-label {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--ts);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
+font-size: 10px;
+font-weight: 700;
+color: var(--ts);
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 8px;
 }
 .phone-where-input {
-  background: #F9FAFB;
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+background: #F9FAFB;
+border: 1.5px solid var(--border);
+border-radius: 10px;
+padding: 10px 14px;
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 10px;
 }
 .phone-where-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--saffron);
-  flex-shrink: 0;
+width: 8px; height: 8px;
+border-radius: 50%;
+background: var(--saffron);
+flex-shrink: 0;
 }
 .phone-where-text {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--tp);
+font-size: 12px;
+font-weight: 600;
+color: var(--tp);
 }
 .phone-ride-btn {
-  width: 100%;
-  height: 44px;
-  background: var(--saffron);
-  border: none;
-  border-radius: 10px;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(249,92,0,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+width: 100%;
+height: 44px;
+background: var(--saffron);
+border: none;
+border-radius: 10px;
+color: white;
+font-family: 'Poppins', sans-serif;
+font-size: 14px;
+font-weight: 700;
+cursor: pointer;
+box-shadow: 0 4px 12px rgba(249,92,0,0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 6px;
 }
 
 /* Floating UI chips on phone */
 .phone-float-chips {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 15;
+position: absolute;
+inset: 0;
+pointer-events: none;
+z-index: 15;
 }
 .phone-chip {
-  position: absolute;
-  background: white;
-  border-radius: 10px;
-  padding: 8px 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  font-size: 10px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  animation: chip-float 4s ease-in-out infinite;
+position: absolute;
+background: white;
+border-radius: 10px;
+padding: 8px 12px;
+box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+font-size: 10px;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 6px;
+animation: chip-float 4s ease-in-out infinite;
 }
 .phone-chip:nth-child(2) { animation-delay: 1.5s; animation-direction: alternate; }
 .phone-chip-green { border-left: 3px solid var(--green); color: var(--green); }
 .phone-chip-saffron { border-left: 3px solid var(--saffron); color: var(--saffron); }
 @keyframes chip-float {
-  0%,100% { transform: translateY(0) rotate(-1deg); }
-  50% { transform: translateY(-6px) rotate(1deg); }
+0%,100% { transform: translateY(0) rotate(-1deg); }
+50% { transform: translateY(-6px) rotate(1deg); }
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================================
-   MARQUEE TICKER
+MARQUEE TICKER
 ============================================================ */
 .ticker-strip {
-  background: var(--saffron);
-  padding: 12px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px solid rgba(0,0,0,0.1);
+background: var(--saffron);
+padding: 12px 0;
+overflow: hidden;
+white-space: nowrap;
+border-top: 1px solid rgba(0,0,0,0.1);
 }
 .ticker-track {
-  display: inline-flex;
-  animation: ticker-scroll 30s linear infinite;
-  gap: 0;
+display: inline-flex;
+animation: ticker-scroll 30s linear infinite;
+gap: 0;
 }
 .ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 28px;
-  font-size: 13px;
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+display: inline-flex;
+align-items: center;
+gap: 12px;
+padding: 0 28px;
+font-size: 13px;
+font-weight: 700;
+color: white;
+text-transform: uppercase;
+letter-spacing: 1px;
 }
 .ticker-sep {
-  color: rgba(255,255,255,0.4);
-  font-size: 16px;
+color: rgba(255,255,255,0.4);
+font-size: 16px;
 }
 @keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
 }
 
 /* ============================================================
-   HOW IT WORKS
+HOW IT WORKS
 ============================================================ */
 .section {
-  padding: 100px 40px;
-  max-width: 1280px;
-  margin: 0 auto;
+padding: 100px 40px;
+max-width: 1280px;
+margin: 0 auto;
 }
 .section-label {
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--saffron);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
+font-size: 11px;
+font-weight: 800;
+color: var(--saffron);
+text-transform: uppercase;
+letter-spacing: 2px;
+margin-bottom: 12px;
 }
 .section-title {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(36px, 3vw, 52px);
-  font-weight: 900;
-  color: var(--navy);
-  letter-spacing: -1.5px;
-  line-height: 1.1;
-  margin-bottom: 16px;
+font-family: 'Fraunces', serif;
+font-size: clamp(36px, 3vw, 52px);
+font-weight: 900;
+color: var(--navy);
+letter-spacing: -1.5px;
+line-height: 1.1;
+margin-bottom: 16px;
 }
 .section-sub {
-  font-size: 18px;
-  color: var(--ts);
-  line-height: 1.6;
-  max-width: 540px;
-  font-weight: 400;
+font-size: 18px;
+color: var(--ts);
+line-height: 1.6;
+max-width: 540px;
+font-weight: 400;
 }
 
 .how-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 60px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 28px;
+margin-top: 60px;
 }
 .how-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 32px 28px;
-  position: relative;
-  overflow: hidden;
-  transition: all 300ms var(--ease-out);
+background: white;
+border: 1px solid var(--border);
+border-radius: 20px;
+padding: 32px 28px;
+position: relative;
+overflow: hidden;
+transition: all 300ms var(--ease-out);
 }
 .how-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  border-color: transparent;
+transform: translateY(-6px);
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+border-color: transparent;
 }
 .how-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--saffron-10) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 300ms;
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, var(--saffron-10) 0%, transparent 60%);
+opacity: 0;
+transition: opacity 300ms;
 }
 .how-card:hover::before { opacity: 1; }
 .how-num {
-  font-family: 'Fraunces', serif;
-  font-size: 72px;
-  font-weight: 900;
-  color: rgba(249,92,0,0.08);
-  position: absolute;
-  top: -10px; right: 20px;
-  line-height: 1;
-  pointer-events: none;
+font-family: 'Fraunces', serif;
+font-size: 72px;
+font-weight: 900;
+color: rgba(249,92,0,0.08);
+position: absolute;
+top: -10px; right: 20px;
+line-height: 1;
+pointer-events: none;
 }
 .how-icon {
-  width: 56px; height: 56px;
-  border-radius: 14px;
-  background: var(--saffron-10);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 26px;
-  margin-bottom: 20px;
+width: 56px; height: 56px;
+border-radius: 14px;
+background: var(--saffron-10);
+display: flex; align-items: center; justify-content: center;
+font-size: 26px;
+margin-bottom: 20px;
 }
 .how-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 10px;
+font-size: 18px;
+font-weight: 700;
+color: var(--navy);
+margin-bottom: 10px;
 }
 .how-desc {
-  font-size: 14px;
-  color: var(--ts);
-  line-height: 1.6;
+font-size: 14px;
+color: var(--ts);
+line-height: 1.6;
 }
 
 /* ============================================================
-   VEHICLE TYPES
+VEHICLE TYPES
 ============================================================ */
 .vehicles-section {
-  background: var(--navy);
-  padding: 100px 40px;
-  position: relative;
-  overflow: hidden;
+background: var(--navy);
+padding: 100px 40px;
+position: relative;
+overflow: hidden;
 }
 .vehicles-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 50% 80% at 80% 50%, rgba(249,92,0,0.06) 0%, transparent 60%);
-  pointer-events: none;
+position: absolute; inset: 0;
+background:
+radial-gradient(ellipse 50% 80% at 80% 50%, rgba(249,92,0,0.06) 0%, transparent 60%);
+pointer-events: none;
 }
 .vehicles-inner {
-  max-width: 1280px;
-  margin: 0 auto;
+max-width: 1280px;
+margin: 0 auto;
 }
 .vehicles-inner .section-title { color: white; }
 .vehicles-inner .section-sub { color: rgba(255,255,255,0.5); }
 
 .vehicles-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 60px;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 20px;
+margin-top: 60px;
 }
 .vehicle-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 28px 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 250ms var(--ease-out);
-  position: relative;
-  overflow: hidden;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 20px;
+padding: 28px 20px;
+text-align: center;
+cursor: pointer;
+transition: all 250ms var(--ease-out);
+position: relative;
+overflow: hidden;
 }
 .vehicle-card:hover {
-  background: rgba(249,92,0,0.08);
-  border-color: rgba(249,92,0,0.3);
-  transform: translateY(-4px);
+background: rgba(249,92,0,0.08);
+border-color: rgba(249,92,0,0.3);
+transform: translateY(-4px);
 }
 .vehicle-card.featured {
-  background: rgba(249,92,0,0.1);
-  border-color: rgba(249,92,0,0.35);
+background: rgba(249,92,0,0.1);
+border-color: rgba(249,92,0,0.35);
 }
 .vehicle-badge {
-  position: absolute;
-  top: 14px; right: 14px;
-  background: var(--saffron);
-  color: white;
-  font-size: 9px;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+position: absolute;
+top: 14px; right: 14px;
+background: var(--saffron);
+color: white;
+font-size: 9px;
+font-weight: 800;
+padding: 3px 8px;
+border-radius: 4px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
 }
 .vehicle-emoji {
-  font-size: 48px;
-  display: block;
-  margin-bottom: 14px;
-  transition: transform 250ms var(--ease-spring);
+font-size: 48px;
+display: block;
+margin-bottom: 14px;
+transition: transform 250ms var(--ease-spring);
 }
 .vehicle-card:hover .vehicle-emoji { transform: scale(1.15) rotate(-5deg); }
 .vehicle-name {
-  font-size: 16px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 4px;
+font-size: 16px;
+font-weight: 700;
+color: white;
+margin-bottom: 4px;
 }
 .vehicle-sub {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 14px;
+font-size: 12px;
+color: rgba(255,255,255,0.4);
+margin-bottom: 14px;
 }
 .vehicle-price {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--saffron);
-  background: rgba(249,92,0,0.12);
-  padding: 4px 12px;
-  border-radius: 6px;
-  display: inline-block;
+font-family: 'JetBrains Mono', monospace;
+font-size: 13px;
+font-weight: 500;
+color: var(--saffron);
+background: rgba(249,92,0,0.12);
+padding: 4px 12px;
+border-radius: 6px;
+display: inline-block;
 }
 
 /* ============================================================
-   FEATURES SPLIT
+FEATURES SPLIT
 ============================================================ */
 .features-split {
-  padding: 100px 40px;
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+padding: 100px 40px;
+max-width: 1280px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
 }
 .features-split.reverse { direction: rtl; }
 .features-split.reverse > * { direction: ltr; }
 
 .features-phone-wrap {
-  position: relative;
-  display: flex;
-  justify-content: center;
+position: relative;
+display: flex;
+justify-content: center;
 }
 .features-phone-bg {
-  position: absolute;
-  width: 280px; height: 280px;
-  border-radius: 50%;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  pointer-events: none;
+position: absolute;
+width: 280px; height: 280px;
+border-radius: 50%;
+top: 50%; left: 50%;
+transform: translate(-50%,-50%);
+pointer-events: none;
 }
 .features-phone-bg.orange { background: radial-gradient(circle, rgba(249,92,0,0.12) 0%, transparent 70%); }
-.features-phone-bg.green  { background: radial-gradient(circle, rgba(52,211,153,0.12) 0%, transparent 70%); }
+.features-phone-bg.green { background: radial-gradient(circle, rgba(52,211,153,0.12) 0%, transparent 70%); }
 
 .mini-phone {
-  width: 240px;
-  height: 460px;
-  background: var(--navy);
-  border-radius: 30px;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 6px #111218,
-    0 0 0 7px #1E2030,
-    0 30px 60px rgba(0,0,0,0.4);
-  position: relative;
-  flex-shrink: 0;
+width: 240px;
+height: 460px;
+background: var(--navy);
+border-radius: 30px;
+overflow: hidden;
+box-shadow:
+0 0 0 6px #111218,
+0 0 0 7px #1E2030,
+0 30px 60px rgba(0,0,0,0.4);
+position: relative;
+flex-shrink: 0;
 }
 .mini-phone-notch {
-  position: absolute;
-  top: 10px; left: 50%;
-  transform: translateX(-50%);
-  width: 70px; height: 20px;
-  background: #0A0C14;
-  border-radius: 10px;
-  z-index: 100;
+position: absolute;
+top: 10px; left: 50%;
+transform: translateX(-50%);
+width: 70px; height: 20px;
+background: #0A0C14;
+border-radius: 10px;
+z-index: 100;
 }
 
 /* Customer mini phone */
 .customer-screen {
-  width: 100%; height: 100%;
-  background: var(--bg);
-  display: flex;
-  flex-direction: column;
+width: 100%; height: 100%;
+background: var(--bg);
+display: flex;
+flex-direction: column;
 }
 .mini-status {
-  height: 40px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 0 18px 8px;
-  flex-shrink: 0;
+height: 40px;
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+padding: 0 18px 8px;
+flex-shrink: 0;
 }
 .mini-map {
-  flex: 1;
-  position: relative;
-  background: #E8F0D5;
-  overflow: hidden;
+flex: 1;
+position: relative;
+background: #E8F0D5;
+overflow: hidden;
 }
 .mini-map-bg {
-  position: absolute; inset: 0;
-  background:
-    repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(200,210,180,0.4) 20px, rgba(200,210,180,0.4) 21px),
-    repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(200,210,180,0.4) 20px, rgba(200,210,180,0.4) 21px),
-    #E8F0D5;
+position: absolute; inset: 0;
+background:
+repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(200,210,180,0.4) 20px, rgba(200,210,180,0.4) 21px),
+repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(200,210,180,0.4) 20px, rgba(200,210,180,0.4) 21px),
+#E8F0D5;
 }
 .mini-road-h { position: absolute; height: 7px; left: 0; right: 0; background: rgba(255,255,255,0.9); }
 .mini-road-v { position: absolute; width: 7px; top: 0; bottom: 0; background: rgba(255,255,255,0.9); }
 .mini-sheet {
-  background: white;
-  border-radius: 16px 16px 0 0;
-  padding: 12px;
-  flex-shrink: 0;
+background: white;
+border-radius: 16px 16px 0 0;
+padding: 12px;
+flex-shrink: 0;
 }
 .mini-sheet-handle {
-  width: 28px; height: 3px;
-  background: var(--border);
-  border-radius: 2px;
-  margin: 0 auto 10px;
+width: 28px; height: 3px;
+background: var(--border);
+border-radius: 2px;
+margin: 0 auto 10px;
 }
 .ride-option-row {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 8px;
+display: flex;
+gap: 6px;
+margin-bottom: 8px;
 }
 .ride-opt {
-  flex: 1;
-  background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 4px;
-  text-align: center;
-  font-size: 9px;
-  font-weight: 700;
-  color: var(--ts);
+flex: 1;
+background: var(--bg);
+border: 1.5px solid var(--border);
+border-radius: 8px;
+padding: 8px 4px;
+text-align: center;
+font-size: 9px;
+font-weight: 700;
+color: var(--ts);
 }
 .ride-opt.sel {
-  border-color: var(--saffron);
-  background: var(--saffron-10);
-  color: var(--saffron);
+border-color: var(--saffron);
+background: var(--saffron-10);
+color: var(--saffron);
 }
 .mini-btn {
-  width: 100%;
-  height: 36px;
-  background: var(--saffron);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
+width: 100%;
+height: 36px;
+background: var(--saffron);
+border: none;
+border-radius: 8px;
+color: white;
+font-family: 'Poppins', sans-serif;
+font-size: 11px;
+font-weight: 700;
+cursor: pointer;
 }
 
 /* Driver mini phone */
 .driver-screen {
-  width: 100%; height: 100%;
-  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px 20px 20px;
+width: 100%; height: 100%;
+background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 50px 20px 20px;
 }
 .driver-avatar {
-  width: 60px; height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--saffron), #FF8C42);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 28px;
-  margin-bottom: 12px;
-  box-shadow: 0 8px 20px rgba(249,92,0,0.4);
+width: 60px; height: 60px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--saffron), #FF8C42);
+display: flex; align-items: center; justify-content: center;
+font-size: 28px;
+margin-bottom: 12px;
+box-shadow: 0 8px 20px rgba(249,92,0,0.4);
 }
 .driver-name {
-  font-size: 16px; font-weight: 700; color: white; margin-bottom: 2px;
+font-size: 16px; font-weight: 700; color: white; margin-bottom: 2px;
 }
 .driver-rating {
-  font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 20px;
+font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 20px;
 }
 .driver-earnings-card {
-  width: 100%;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 12px;
+width: 100%;
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 14px;
+padding: 16px;
+margin-bottom: 12px;
 }
 .earn-l { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
 .earn-a { font-size: 28px; font-weight: 800; color: var(--green); letter-spacing: -1px; }
 .earn-s { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px; }
 .driver-toggle {
-  width: 100%;
-  height: 44px;
-  background: var(--green);
-  border: none;
-  border-radius: 10px;
-  color: #0A0C14;
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  cursor: pointer;
-  margin-top: auto;
+width: 100%;
+height: 44px;
+background: var(--green);
+border: none;
+border-radius: 10px;
+color: #0A0C14;
+font-family: 'Poppins', sans-serif;
+font-size: 13px;
+font-weight: 800;
+cursor: pointer;
+margin-top: auto;
 }
 
 .features-content {}
 .feature-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 40px;
+display: flex;
+flex-direction: column;
+gap: 24px;
+margin-top: 40px;
 }
 .feature-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 20px;
-  border-radius: 14px;
-  transition: all 200ms;
-  border: 1px solid transparent;
+display: flex;
+gap: 16px;
+align-items: flex-start;
+padding: 20px;
+border-radius: 14px;
+transition: all 200ms;
+border: 1px solid transparent;
 }
 .feature-item:hover {
-  background: white;
-  border-color: var(--border);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  transform: translateX(4px);
+background: white;
+border-color: var(--border);
+box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+transform: translateX(4px);
 }
 .feature-icon {
-  width: 44px; height: 44px;
-  border-radius: 12px;
-  background: var(--saffron-10);
-  display: flex; align-items: center
+width: 44px; height: 44px;
+border-radius: 12px;
+background: var(--saffron-10);
+display: flex; align-items: center; justify-content: center;
+font-size: 20px;
+flex-shrink: 0;
+}
+.feature-icon.green-icon { background: var(--green-10); }
+.feature-title {
+font-size: 15px;
+font-weight: 700;
+color: var(--navy);
+margin-bottom: 4px;
+}
+.feature-desc {
+font-size: 13px;
+color: var(--ts);
+line-height: 1.5;
+}
+
+/* ============================================================
+SAFETY SECTION
+============================================================ */
+.safety-section {
+background: var(--bg-warm);
+border-top: 1px solid var(--border);
+border-bottom: 1px solid var(--border);
+padding: 100px 40px;
+}
+.safety-inner {
+max-width: 1280px;
+margin: 0 auto;
+}
+.safety-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+margin-top: 60px;
+}
+.safety-card {
+background: white;
+border-radius: 20px;
+padding: 32px 24px;
+border: 1px solid var(--border);
+transition: all 250ms;
+}
+.safety-card:hover {
+border-color: var(--saffron);
+transform: translateY(-4px);
+box-shadow: 0 16px 32px rgba(249,92,0,0.08);
+}
+.safety-icon {
+font-size: 36px;
+margin-bottom: 16px;
+display: block;
+}
+.safety-title {
+font-size: 17px;
+font-weight: 700;
+color: var(--navy);
+margin-bottom: 8px;
+}
+.safety-desc {
+font-size: 13px;
+color: var(--ts);
+line-height: 1.6;
+}
+
+/* ============================================================
+DRIVER CTA SECTION
+============================================================ */
+.driver-cta {
+padding: 100px 40px;
+max-width: 1280px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 60px;
+align-items: center;
+}
+.driver-cta-content {}
+.driver-earnings-preview {
+background: var(--navy);
+border-radius: 24px;
+padding: 32px;
+position: relative;
+overflow: hidden;
+}
+.driver-cta-bg {
+position: absolute; inset: 0;
+background: radial-gradient(ellipse at 80% 0%, rgba(52,211,153,0.15) 0%, transparent 60%);
+}
+.driver-earnings-preview-inner { position: relative; z-index: 1; }
+.dep-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.dep-amount { font-size: 52px; font-weight: 800; color: var(--green); letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
+.dep-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+
+.dep-stats {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 1px;
+background: rgba(255,255,255,0.08);
+border-radius: 12px;
+overflow: hidden;
+margin-bottom: 24px;
+}
+.dep-stat {
+background: rgba(255,255,255,0.04);
+padding: 12px;
+text-align: center;
+}
+.dep-stat-num { font-size: 18px; font-weight: 800; color: white; }
+.dep-stat-label { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+
+.btn-driver-cta {
+width: 100%;
+height: 52px;
+background: var(--green);
+border: none;
+border-radius: 12px;
+color: #0A0C14;
+font-family: 'Poppins', sans-serif;
+font-size: 16px;
+font-weight: 800;
+cursor: pointer;
+transition: all 200ms;
+box-shadow: 0 8px 20px rgba(52,211,153,0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+text-decoration: none;
+}
+.btn-driver-cta:hover { background: var(--green-d); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(52,211,153,0.4); }
+
+.driver-perks {
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin-top: 32px;
+}
+.driver-perk {
+display: flex;
+align-items: center;
+gap: 14px;
+}
+.perk-icon {
+width: 40px; height: 40px;
+border-radius: 10px;
+background: var(--green-10);
+display: flex; align-items: center; justify-content: center;
+font-size: 18px;
+flex-shrink: 0;
+}
+.perk-title { font-size: 15px; font-weight: 700; color: var(--navy); }
+.perk-sub { font-size: 12px; color: var(--ts); }
+
+/* ============================================================
+DOWNLOAD CTA
+============================================================ */
+.download-section {
+background: var(--navy);
+padding: 100px 40px;
+position: relative;
+overflow: hidden;
+text-align: center;
+}
+.download-bg {
+position: absolute; inset: 0;
+background:
+radial-gradient(ellipse 60% 80% at 50% 50%, rgba(249,92,0,0.1) 0%, transparent 70%);
+pointer-events: none;
+}
+.download-inner {
+position: relative;
+z-index: 1;
+max-width: 640px;
+margin: 0 auto;
+}
+.download-title {
+font-family: 'Fraunces', serif;
+font-size: clamp(40px, 4vw, 64px);
+font-weight: 900;
+color: white;
+letter-spacing: -2px;
+line-height: 1.05;
+margin-bottom: 16px;
+}
+.download-title span { color: var(--saffron); }
+.download-sub {
+font-size: 18px;
+color: rgba(255,255,255,0.5);
+margin-bottom: 48px;
+line-height: 1.5;
+}
+.download-btns {
+display: flex;
+gap: 16px;
+justify-content: center;
+flex-wrap: wrap;
+}
+.store-btn {
+display: flex;
+align-items: center;
+gap: 12px;
+background: white;
+color: var(--navy);
+padding: 14px 24px;
+border-radius: 14px;
+cursor: pointer;
+transition: all 200ms;
+text-decoration: none;
+border: none;
+font-family: 'Poppins', sans-serif;
+}
+.store-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+}
+.store-btn-icon { font-size: 28px; }
+.store-btn-text {}
+.store-btn-sub { font-size: 11px; color: var(--ts); }
+.store-btn-name { font-size: 16px; font-weight: 700; }
+
+/* QR floating */
+.download-qr {
+display: inline-flex;
+align-items: center;
+gap: 12px;
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(255,255,255,0.12);
+border-radius: 12px;
+padding: 12px 20px;
+margin-top: 32px;
+font-size: 13px;
+color: rgba(255,255,255,0.5);
+}
+
+/* ============================================================
+TESTIMONIALS
+============================================================ */
+.testimonials-section {
+padding: 100px 40px;
+background: var(--bg);
+}
+.testimonials-inner { max-width: 1280px; margin: 0 auto; }
+.testimonials-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+margin-top: 60px;
+}
+.testimonial-card {
+background: white;
+border: 1px solid var(--border);
+border-radius: 20px;
+padding: 28px;
+transition: all 250ms;
+}
+.testimonial-card:hover {
+border-color: var(--saffron);
+box-shadow: 0 8px 32px rgba(249,92,0,0.08);
+transform: translateY(-4px);
+}
+.testimonial-stars {
+color: #F59E0B;
+font-size: 16px;
+letter-spacing: 1px;
+margin-bottom: 14px;
+}
+.testimonial-text {
+font-size: 15px;
+color: var(--tp);
+line-height: 1.6;
+margin-bottom: 20px;
+font-style: italic;
+}
+.testimonial-author {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.author-avatar {
+width: 40px; height: 40px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--saffron), #FF8C42);
+display: flex; align-items: center; justify-content: center;
+font-size: 18px;
+font-weight: 700;
+color: white;
+font-family: 'Poppins';
+flex-shrink: 0;
+}
+.author-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+.author-loc { font-size: 12px; color: var(--ts); }
+
+/* ============================================================
+FOOTER
+============================================================ */
+footer {
+background: var(--navy);
+padding: 64px 40px 40px;
+}
+.footer-inner {
+max-width: 1280px;
+margin: 0 auto;
+}
+.footer-top {
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 1fr;
+gap: 60px;
+padding-bottom: 48px;
+border-bottom: 1px solid rgba(255,255,255,0.08);
+margin-bottom: 32px;
+}
+.footer-logo {
+font-family: 'Fraunces', serif;
+font-size: 28px;
+font-weight: 900;
+color: var(--saffron);
+margin-bottom: 12px;
+}
+.footer-tagline {
+font-size: 14px;
+color: rgba(255,255,255,0.4);
+line-height: 1.6;
+max-width: 260px;
+margin-bottom: 24px;
+}
+.footer-socials {
+display: flex;
+gap: 10px;
+}
+.social-btn {
+width: 36px; height: 36px;
+border-radius: 8px;
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(255,255,255,0.08);
+display: flex; align-items: center; justify-content: center;
+font-size: 16px;
+cursor: pointer;
+transition: all 150ms;
+}
+.social-btn:hover { background: rgba(249,92,0,0.15); border-color: rgba(249,92,0,0.3); }
+
+.footer-col {}
+.footer-col-title {
+font-size: 11px;
+font-weight: 800;
+color: rgba(255,255,255,0.3);
+text-transform: uppercase;
+letter-spacing: 1.5px;
+margin-bottom: 16px;
+}
+.footer-links {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.footer-links a {
+font-size: 14px;
+color: rgba(255,255,255,0.5);
+text-decoration: none;
+transition: color 150ms;
+}
+.footer-links a:hover { color: white; }
+
+.footer-bottom {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.footer-copy {
+font-size: 13px;
+color: rgba(255,255,255,0.25);
+}
+.footer-langs { display: flex; gap: 12px; }
+.lang-chip {
+font-size: 11px;
+font-weight: 600;
+color: rgba(255,255,255,0.3);
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 6px;
+padding: 4px 10px;
+cursor: pointer;
+transition: all 150ms;
+}
+.lang-chip:hover { color: white; background: rgba(249,92,0,0.15); border-color: rgba(249,92,0,0.3); }
+.lang-chip.active { color: var(--saffron); background: rgba(249,92,0,0.1); border-color: rgba(249,92,0,0.3); }
+
+/* ============================================================
+SCROLL ANIMATIONS
+============================================================ */
+.reveal {
+opacity: 0;
+transform: translateY(40px);
+transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.reveal.visible {
+opacity: 1;
+transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ============================================================
+RESPONSIVE
+============================================================ */
+@media (max-width: 1024px) {
+.hero-inner { grid-template-columns: 1fr; gap: 60px; }
+.hero-phone-wrap { order: -1; }
+.how-grid { grid-template-columns: 1fr 1fr; }
+.vehicles-grid { grid-template-columns: 1fr 1fr; }
+.features-split { grid-template-columns: 1fr; gap: 40px; }
+.features-split.reverse { direction: ltr; }
+.features-phone-wrap { justify-content: center; }
+.driver-cta { grid-template-columns: 1fr; }
+.testimonials-grid { grid-template-columns: 1fr 1fr; }
+.footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 640px) {
+.navbar { padding: 0 20px; }
+.nav-links { display: none; }
+.section { padding: 60px 20px; }
+.hero-inner { padding: 40px 20px; }
+.how-grid { grid-template-columns: 1fr; }
+.vehicles-grid { grid-template-columns: 1fr 1fr; }
+.safety-grid { grid-template-columns: 1fr; }
+.testimonials-grid { grid-template-columns: 1fr; }
+.footer-top { grid-template-columns: 1fr; }
+.footer-bottom { flex-direction: column; gap: 16px; }
+.vehicles-section { padding: 60px 20px; }
+.safety-section { padding: 60px 20px; }
+.driver-cta { padding: 60px 20px; }
+.download-section { padding: 60px 20px; }
+.testimonials-section { padding: 60px 20px; }
+footer { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+<a href="#" class="nav-logo">
+<span class="nav-logo-text">Chalo</span>
+<span class="nav-logo-punjabi">ਚਲੋ</span>
+</a>
+<ul class="nav-links">
+<li><a href="#how-it-works">How it works</a></li>
+<li><a href="#vehicles">Vehicles</a></li>
+<li><a href="#safety">Safety</a></li>
+<li><a href="#drivers">Drive with us</a></li>
+</ul>
+<div class="nav-cta">
+<button class="btn-nav-outline" onclick="document.getElementById('drivers').scrollIntoView({behavior:'smooth'})">Become a Driver</button>
+<button class="btn-nav-fill" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">Get the App</button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-grid"></div>
+<div class="hero-orb hero-orb-1"></div>
+<div class="hero-orb hero-orb-2"></div>
+
+<div class="hero-inner">
+<div class="hero-text">
+<div class="hero-badge">
+<div class="hero-badge-dot"></div>
+Now live in Punjab & Haryana
+</div>
+
+<div class="hero-title">
+Ride Smart.<br>Ride Safe.
+<span class="hero-title-gurmukhi">ਚਲੋ ਸ਼ੁਰੂ ਕਰੀਏ</span>
+</div>
+
+<p class="hero-sub">
+<strong>Chalo</strong> connects you to trusted local drivers across Punjab and Haryana. Book a ride in under 30 seconds — auto, mini, sedan, or prime.
+</p>
+
+<div class="hero-actions">
+<a class="btn-hero-primary" href="#download">
+📱 Download App
+</a>
+<a class="btn-hero-outline" href="#how-it-works">
+See How It Works →
+</a>
+</div>
+
+<div class="hero-stats">
+<div class="stat-item">
+<div class="stat-num">2.4L+</div>
+<div class="stat-label">Rides Completed</div>
+</div>
+<div class="stat-item">
+<div class="stat-num">18K+</div>
+<div class="stat-label">Active Drivers</div>
+</div>
+<div class="stat-item">
+<div class="stat-num">4.8★</div>
+<div class="stat-label">Avg. Rating</div>
+</div>
+</div>
+</div>
+
+<!-- Hero Phone -->
+<div class="hero-phone-wrap">
+<div class="hero-phone-glow"></div>
+<div class="hero-phone">
+<div class="phone-notch"></div>
+<div class="phone-screen">
+<div class="phone-home-screen">
+<div class="phone-status">
+<span class="phone-time">9:41</span>
+<span class="phone-icons">📶 🔋</span>
+</div>
+<div class="phone-map">
+<div class="phone-map-bg"></div>
+<!-- Roads -->
+<div class="phone-road-h" style="top: 45%;"></div>
+<div class="phone-road-h" style="top: 70%; height:5px; opacity:.6;"></div>
+<div class="phone-road-h" style="top: 20%; height:5px; opacity:.6;"></div>
+<div class="phone-road-v" style="left: 35%;"></div>
+<div class="phone-road-v" style="left: 65%; width:5px; opacity:.6;"></div>
+<div class="phone-road-v" style="left: 80%; width:5px; opacity:.6;"></div>
+<!-- Cars floating -->
+<div style="position:absolute;top:42%;left:20%;transform:translate(-50%,-50%);font-size:18px;animation:car-drive 5s ease-in-out infinite;">🚗</div>
+<div style="position:absolute;top:44%;left:55%;transform:translate(-50%,-50%);font-size:16px;animation:car-drive 7s 1s ease-in-out infinite reverse;">🛺</div>
+<div style="position:absolute;top:43%;left:72%;transform:translate(-50%,-50%);font-size:16px;animation:car-drive 6s 2s ease-in-out infinite;">🚗</div>
+<!-- Dest pin -->
+<div class="phone-dest-pin" style="top:32%;left:62%;">
+<div class="phone-pin-icon"><span>📍</span></div>
+</div>
+<!-- User pin -->
+<div class="phone-dest-pin" style="top:60%;left:40%;animation-delay:1s;">
+<div class="phone-pin-icon" style="background:var(--green);box-shadow:0 4px 10px rgba(52,211,153,0.4);"><span>🏠</span></div>
+</div>
+<!-- ETA chip -->
+<div class="phone-chip phone-chip-green" style="top:12px;left:12px;">
+<span>🕐</span> 3 min away
+</div>
+<div class="phone-chip phone-chip-saffron" style="top:12px;right:12px;animation-delay:1.5s;">
+<span>💸</span> ₹87
+</div>
+</div>
+<div class="phone-sheet">
+<div class="phone-sheet-handle"></div>
+<div class="phone-sheet-label">Where to?</div>
+<div class="phone-where-input">
+<div class="phone-where-dot"></div>
+<div class="phone-where-text">Amritsar Golden Temple</div>
+</div>
+<button class="phone-ride-btn">🚖 Book a Ride</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TICKER STRIP -->
+<div class="ticker-strip">
+<div class="ticker-track" id="ticker">
+<div class="ticker-item">🚗 Rides in under 30 seconds <span class="ticker-sep">·</span></div>
+<div class="ticker-item">🏆 4.8★ customer rating <span class="ticker-sep">·</span></div>
+<div class="ticker-item">🛡️ 24/7 safety support <span class="ticker-sep">·</span></div>
+<div class="ticker-item">💰 Best fares in Punjab <span class="ticker-sep">·</span></div>
+<div class="ticker-item">📍 GPS live tracking <span class="ticker-sep">·</span></div>
+<div class="ticker-item">🛺 Auto, Mini, Sedan, Prime <span class="ticker-sep">·</span></div>
+<div class="ticker-item">ਚਲੋ ਸ਼ੁਰੂ ਕਰੀਏ — Let's Go <span class="ticker-sep">·</span></div>
+<!-- Duplicate for seamless loop -->
+<div class="ticker-item">🚗 Rides in under 30 seconds <span class="ticker-sep">·</span></div>
+<div class="ticker-item">🏆 4.8★ customer rating <span class="ticker-sep">·</span></div>
+<div class="ticker-item">🛡️ 24/7 safety support <span class="ticker-sep">·</span></div>
+<div class="ticker-item">💰 Best fares in Punjab <span class="ticker-sep">·</span></div>
+<div class="ticker-item">📍 GPS live tracking <span class="ticker-sep">·</span></div>
+<div class="ticker-item">🛺 Auto, Mini, Sedan, Prime <span class="ticker-sep">·</span></div>
+<div class="ticker-item">ਚਲੋ ਸ਼ੁਰੂ ਕਰੀਏ — Let's Go <span class="ticker-sep">·</span></div>
+</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+<div class="section">
+<div class="reveal">
+<div class="section-label">Simple & Fast</div>
+<h2 class="section-title">Ride in three<br>easy steps</h2>
+<p class="section-sub">Getting from A to B has never been simpler. Book a Chalo ride and be on your way in minutes.</p>
+</div>
+<div class="how-grid">
+<div class="how-card reveal reveal-delay-1">
+<div class="how-num">1</div>
+<div class="how-icon">📍</div>
+<div class="how-title">Set your destination</div>
+<div class="how-desc">Open the Chalo app and enter where you want to go. Our smart map auto-suggests popular destinations near you.</div>
+</div>
+<div class="how-card reveal reveal-delay-2">
+<div class="how-num">2</div>
+<div class="how-icon">🚗</div>
+<div class="how-title">Choose your ride</div>
+<div class="how-desc">Pick from Auto, Mini, Sedan or Prime based on your preference and budget. See upfront pricing — no surprises.</div>
+</div>
+<div class="how-card reveal reveal-delay-3">
+<div class="how-num">3</div>
+<div class="how-icon">✨</div>
+<div class="how-title">Sit back & relax</div>
+<div class="how-desc">Track your driver in real time, share your trip with family, and pay by cash or UPI when you arrive safely.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- VEHICLES -->
+<section id="vehicles" class="vehicles-section">
+<div class="vehicles-bg"></div>
+<div class="vehicles-inner">
+<div class="reveal">
+<div class="section-label" style="color: var(--saffron);">Choose Your Ride</div>
+<h2 class="section-title">Every ride,<br>your way</h2>
+<p class="section-sub">From budget-friendly autos to premium sedans — Chalo has the perfect vehicle for every occasion and every pocket.</p>
+</div>
+<div class="vehicles-grid">
+<div class="vehicle-card reveal reveal-delay-1">
+<span class="vehicle-emoji">🛺</span>
+<div class="vehicle-name">Auto</div>
+<div class="vehicle-sub">Quick & economical</div>
+<div class="vehicle-price">From ₹12/km</div>
+</div>
+<div class="vehicle-card featured reveal reveal-delay-2">
+<div class="vehicle-badge">Popular</div>
+<span class="vehicle-emoji">🚗</span>
+<div class="vehicle-name">Mini</div>
+<div class="vehicle-sub">Comfortable 4-seater</div>
+<div class="vehicle-price">From ₹14/km</div>
+</div>
+<div class="vehicle-card reveal reveal-delay-2">
+<span class="vehicle-emoji">🚙</span>
+<div class="vehicle-name">Sedan</div>
+<div class="vehicle-sub">Spacious & smooth</div>
+<div class="vehicle-price">From ₹18/km</div>
+</div>
+<div class="vehicle-card reveal reveal-delay-3">
+<span class="vehicle-emoji">🏎️</span>
+<div class="vehicle-name">Prime</div>
+<div class="vehicle-sub">Premium experience</div>
+<div class="vehicle-price">From ₹22/km</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CUSTOMER FEATURES -->
+<section style="background: var(--bg);">
+<div class="features-split">
+<div class="features-phone-wrap reveal">
+<div class="features-phone-bg orange"></div>
+<div class="mini-phone">
+<div class="mini-phone-notch"></div>
+<div class="customer-screen">
+<div class="mini-status">
+<span style="font-size:10px;font-weight:700;color:var(--navy);">9:41</span>
+<span style="font-size:9px;color:var(--navy);">📶🔋</span>
+</div>
+<div class="mini-map">
+<div class="mini-map-bg"></div>
+<div class="mini-road-h" style="top:45%;"></div>
+<div class="mini-road-h" style="top:20%;opacity:.5;height:5px;"></div>
+<div class="mini-road-v" style="left:40%;"></div>
+<div class="mini-road-v" style="left:70%;opacity:.5;width:5px;"></div>
+<div style="position:absolute;top:44%;left:25%;transform:translate(-50%,-50%);font-size:16px;animation:car-drive 5s ease-in-out infinite;">🚗</div>
+<div style="position:absolute;top:15%;left:50%;transform:translate(-50%,-100%);font-size:22px;">📍</div>
+</div>
+<div class="mini-sheet">
+<div class="mini-sheet-handle"></div>
+<div class="ride-option-row">
+<div class="ride-opt">🛺<br>Auto</div>
+<div class="ride-opt sel">🚗<br>Mini</div>
+<div class="ride-opt">🚙<br>Sedan</div>
+<div class="ride-opt">🏎️<br>Prime</div>
+</div>
+<button class="mini-btn">Confirm Ride — ₹127</button>
+</div>
+</div>
+</div>
+</div>
+<div class="features-content reveal">
+<div class="section-label">For Riders</div>
+<h2 class="section-title">Built around<br>your comfort</h2>
+<div class="feature-list">
+<div class="feature-item">
+<div class="feature-icon">💰</div>
+<div>
+<div class="feature-title">Upfront pricing — always</div>
+<div class="feature-desc">See the exact fare before you book. No surge pricing surprises. No hidden fees. What you see is what you pay.</div>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">📍</div>
+<div>
+<div class="feature-title">Live GPS tracking</div>
+<div class="feature-desc">Track your driver on the map in real time. Share your trip with family so they always know you're safe.</div>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🕐</div>
+<div>
+<div class="feature-title">Schedule in advance</div>
+<div class="feature-desc">Book your ride up to 7 days ahead for flights, trains, and early morning trips. Never miss a departure again.</div>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">💳</div>
+<div>
+<div class="feature-title">Pay your way</div>
+<div class="feature-desc">Cash, UPI, or Chalo Wallet. Whichever works for you, we've got it covered.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SAFETY SECTION -->
+<section id="safety" class="safety-section">
+<div class="safety-inner">
+<div class="reveal">
+<div class="section-label">Your Safety First</div>
+<h2 class="section-title">Ride with<br>confidence</h2>
+<p class="section-sub">Every Chalo ride is protected by multiple layers of safety technology and 24/7 human support.</p>
+</div>
+<div class="safety-grid">
+<div class="safety-card reveal reveal-delay-1">
+<span class="safety-icon">🚨</span>
+<div class="safety-title">One-tap SOS</div>
+<div class="safety-desc">Instantly alert emergency contacts and Chalo's safety team with your real-time location — right from the ride screen.</div>
+</div>
+<div class="safety-card reveal reveal-delay-2">
+<span class="safety-icon">✅</span>
+<div class="safety-title">Verified drivers only</div>
+<div class="safety-desc">Every Chalo driver undergoes background checks, document verification, and an in-person onboarding assessment.</div>
+</div>
+<div class="safety-card reveal reveal-delay-3">
+<span class="safety-icon">🔗</span>
+<div class="safety-title">Live trip sharing</div>
+<div class="safety-desc">Share a live link of your ride with anyone — they can see the car's location, driver details, and ETA in real time.</div>
+</div>
+<div class="safety-card reveal reveal-delay-1">
+<span class="safety-icon">📞</span>
+<div class="safety-title">Masked phone calls</div>
+<div class="safety-desc">Call your driver without revealing your personal number. All calls go through our secure anonymized relay system.</div>
+</div>
+<div class="safety-card reveal reveal-delay-2">
+<span class="safety-icon">⭐</span>
+<div class="safety-title">Two-way ratings</div>
+<div class="safety-desc">Rate your driver and get rated in return. Our community-driven system keeps quality high on both sides of every ride.</div>
+</div>
+<div class="safety-card reveal reveal-delay-3">
+<span class="safety-icon">🌙</span>
+<div class="safety-title">24/7 support team</div>
+<div class="safety-desc">Real humans available round the clock via chat and phone. Any issue, any time — we're always here to help.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- DRIVER CTA -->
+<section id="drivers">
+<div class="driver-cta">
+<div class="driver-cta-content reveal">
+<div class="section-label" style="color: var(--green);">For Drivers</div>
+<h2 class="section-title" style="color: var(--navy);">Drive more.<br>Earn more.</h2>
+<p class="section-sub" style="margin-bottom: 32px;">Join thousands of drivers across Punjab and Haryana who are earning their best income yet with Chalo. Flexible hours, weekly payouts, and the lowest commission in the industry.</p>
+<div class="driver-perks">
+<div class="driver-perk">
+<div class="perk-icon">💸</div>
+<div>
+<div class="perk-title">Industry-lowest 8% commission</div>
+<div class="perk-sub">You keep 92% of every fare. That's more than any other platform.</div>
+</div>
+</div>
+<div class="driver-perk">
+<div class="perk-icon">📅</div>
+<div>
+<div class="perk-title">Your schedule, your rules</div>
+<div class="perk-sub">Go online when you want, offline when you need. No penalties, no pressure.</div>
+</div>
+</div>
+<div class="driver-perk">
+<div class="perk-icon">💳</div>
+<div>
+<div class="perk-title">Weekly bank transfers</div>
+<div class="perk-sub">Every Friday, your earnings hit your bank account. No delays, no minimums.</div>
+</div>
+</div>
+<div class="driver-perk">
+<div class="perk-icon">🎯</div>
+<div>
+<div class="perk-title">Performance bonuses</div>
+<div class="perk-sub">Complete daily targets and earn ₹200–₹800 in extra bonus income every week.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="reveal reveal-delay-2">
+<div class="driver-earnings-preview">
+<div class="driver-cta-bg"></div>
+<div class="driver-earnings-preview-inner">
+<div class="dep-label">Weekly earnings potential</div>
+<div class="dep-amount">₹8,400</div>
+<div class="dep-sub">Average weekly earnings for full-time drivers</div>
+<div class="dep-stats">
+<div class="dep-stat">
+<div class="dep-stat-num">12</div>
+<div class="dep-stat-label">Avg rides/day</div>
+</div>
+<div class="dep-stat">
+<div class="dep-stat-num">92%</div>
+<div class="dep-stat-label">Driver share</div>
+</div>
+<div class="dep-stat">
+<div class="dep-stat-num">4.9★</div>
+<div class="dep-stat-label">Avg rating</div>
+</div>
+</div>
+<a class="btn-driver-cta" href="#download">
+🚗 Start Driving with Chalo
+</a>
+<div style="margin-top:14px; font-size:12px; color:rgba(255,255,255,0.3); text-align:center;">
+Documents needed: Driving licence · RC · Aadhaar · PAN
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+<div class="testimonials-inner">
+<div class="reveal" style="text-align:center;">
+<div class="section-label" style="justify-content:center;display:flex;">What People Say</div>
+<h2 class="section-title" style="text-align:center;">Loved across<br>Punjab & Haryana</h2>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial-card reveal reveal-delay-1">
+<div class="testimonial-stars">★★★★★</div>
+<p class="testimonial-text">"Finally a cab app that doesn't cheat on fares! The price shown is the price I pay — every single time. Chalo has become my daily commute partner."</p>
+<div class="testimonial-author">
+<div class="author-avatar">P</div>
+<div>
+<div class="author-name">Priya Sharma</div>
+<div class="author-loc">Chandigarh · Customer</div>
+</div>
+</div>
+</div>
+<div class="testimonial-card reveal reveal-delay-2">
+<div class="testimonial-stars">★★★★★</div>
+<p class="testimonial-text">"As a driver, the 8% commission is a game changer. I was on another app before and losing almost 25%. With Chalo I take home so much more every week."</p>
+<div class="testimonial-author">
+<div class="author-avatar" style="background:linear-gradient(135deg,var(--green),var(--green-d));color:#0A0C14;">H</div>
+<div>
+<div class="author-name">Harpreet Singh</div>
+<div class="author-loc">Ludhiana · Driver Partner</div>
+</div>
+</div>
+</div>
+<div class="testimonial-card reveal reveal-delay-3">
+<div class="testimonial-stars">★★★★★</div>
+<p class="testimonial-text">"The SOS button and live tracking give me peace of mind when my daughter takes a cab at night. I can follow her entire route on my phone. Excellent safety feature!"</p>
+<div class="testimonial-author">
+<div class="author-avatar" style="background:linear-gradient(135deg,#9333EA,#6D28D9);">R</div>
+<div>
+<div class="author-name">Rajinder Kaur</div>
+<div class="author-loc">Amritsar · Customer</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- DOWNLOAD CTA -->
+<section id="download" class="download-section">
+<div class="download-bg"></div>
+<div class="download-inner">
+<div class="reveal">
+<h2 class="download-title">Ready to <span>ਚਲੋ</span>?</h2>
+<p class="download-sub">Download the Chalo app and get your first ride at flat ₹29 — no promo code needed.</p>
+<div class="download-btns">
+<a class="store-btn" href="#">
+<span class="store-btn-icon">🍎</span>
+<div class="store-btn-text">
+<div class="store-btn-sub">Download on the</div>
+<div class="store-btn-name">App Store</div>
+</div>
+</a>
+<a class="store-btn" href="#">
+<span class="store-btn-icon">▶</span>
+<div class="store-btn-text">
+<div class="store-btn-sub">Get it on</div>
+<div class="store-btn-name">Google Play</div>
+</div>
+</a>
+</div>
+<div class="download-qr">
+<span style="font-size:28px;">📱</span>
+<span>Scan to download · Available on iOS & Android</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div class="footer-top">
+<div>
+<div class="footer-logo">Chalo ਚਲੋ</div>
+<p class="footer-tagline">Punjab & Haryana's most trusted ride-hailing platform. Connecting riders and drivers since 2024.</p>
+<div class="footer-socials">
+<div class="social-btn">𝕏</div>
+<div class="social-btn">f</div>
+<div class="social-btn">in</div>
+<div class="social-btn">▶</div>
+</div>
+</div>
+<div class="footer-col">
+<div class="footer-col-title">Company</div>
+<ul class="footer-links">
+<li><a href="#">About us</a></li>
+<li><a href="#">Careers</a></li>
+<li><a href="#">Press</a></li>
+<li><a href="#">Blog</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<div class="footer-col-title">Ride</div>
+<ul class="footer-links">
+<li><a href="#">Book a ride</a></li>
+<li><a href="#">Schedule ride</a></li>
+<li><a href="#">Ride history</a></li>
+<li><a href="#">Referral program</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<div class="footer-col-title">Drive</div>
+<ul class="footer-links">
+<li><a href="#">Become a driver</a></li>
+<li><a href="#">Earnings calculator</a></li>
+<li><a href="#">Driver support</a></li>
+<li><a href="#">Driver app</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-copy">© 2026 Chalo Technologies Pvt. Ltd. · Privacy · Terms · Safety</div>
+<div class="footer-langs">
+<div class="lang-chip active">EN</div>
+<div class="lang-chip" style="font-family:'Noto Sans Gurmukhi';">ਪੰਜਾਬੀ</div>
+<div class="lang-chip">हिंदी</div>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+
+// Language switcher
+document.querySelectorAll('.lang-chip').forEach(chip => {
+chip.addEventListener('click', () => {
+document.querySelectorAll('.lang-chip').forEach(c => c.classList.remove('active'));
+chip.classList.add('active');
+});
+});
+
+// Smooth scroll for CTA buttons
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', (e) => {
+const target = document.querySelector(anchor.getAttribute('href'));
+if (target) {
+e.preventDefault();
+target.scrollIntoView({ behavior: 'smooth' });
+}
+});
+});
+</script>
+</body>
+</html>
