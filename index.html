@@ -1467,6 +1467,51 @@ css/* ============================================================
     border-radius: 99px !important;
   }
 }
+/* ============================================================
+   FIX: PRICING CARDS — 1 column stack on mobile
+============================================================ */
+@media(max-width: 768px) {
+
+  /* Pricing page cards — stack to 1 column */
+  .pricing-cards {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    overflow-x: unset !important;
+    padding: 20px !important;
+  }
+
+  .pricing-vehicle-card {
+    min-width: unset !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* FIX: Driver verification 2-col section */
+  /* The left verification steps + right status flow card */
+  .verification-steps {
+    width: 100% !important;
+  }
+
+  /* Force the 2-col inline grid in safety page to stack */
+  #page-safety div[style*="grid-template-columns:1fr 1fr"],
+  #page-safety div[style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  /* Make the status flow card full width */
+  #page-safety div[style*="grid-template-columns:1fr 1fr"] > div {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Make the dark status flow box not overflow */
+  #page-safety div[style*="background:var(--navy)"][style*="border-radius"] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
 </style>
 </head>
 <body>
