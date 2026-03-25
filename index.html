@@ -1257,6 +1257,43 @@ footer{background:var(--navy);padding:64px 40px 36px;}
   .page{display:block !important;padding-top:0;}
   .reveal{opacity:1 !important;transform:none !important;}
 }
+/* ============================================================
+   MOBILE OVERFLOW FIX
+============================================================ */
+html {
+  overflow-x: hidden;
+}
+
+@media(max-width: 768px) {
+  /* Fix all inline repeat(3) grids */
+  div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Fix all inline repeat(4) grids */
+  div[style*="grid-template-columns:repeat(4"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  /* Fix all inline 2-column grids */
+  div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Fix hero inner grid */
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+  }
+  /* Fix driver hero */
+  .driver-hero-inner {
+    grid-template-columns: 1fr !important;
+  }
+  /* Fix fare section inner grid */
+  .fare-inner div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Fix coverage inner */
+  .coverage-inner {
+    grid-template-columns: 1fr !important;
+  }
+}
 </style>
 </head>
 <body>
