@@ -1394,6 +1394,79 @@ footer{background:var(--navy);padding:64px 40px 36px;}
     padding-right: 16px !important;
   }
 }
+Add this to your CSS just before </style> — it replaces the hidden scrollbar with a visible styled one:
+css/* ============================================================
+   VISIBLE SCROLL INDICATOR FOR MOBILE CARD ROWS
+============================================================ */
+@media(max-width: 768px) {
+
+  .how-grid,
+  .safety-grid,
+  .testimonials-grid,
+  .payment-grid,
+  .schedule-usecases,
+  .support-grid,
+  .tech-grid,
+  .values-grid,
+  .perks-grid,
+  .app-screen-grid,
+  div[style*="grid-template-columns:repeat(3,1fr)"],
+  div[style*="grid-template-columns:repeat(4,1fr)"] {
+    /* show scrollbar */
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--saffron) rgba(249,92,0,0.12) !important;
+    padding-bottom: 12px !important;
+  }
+
+  /* webkit browsers (Chrome, Safari) */
+  .how-grid::-webkit-scrollbar,
+  .safety-grid::-webkit-scrollbar,
+  .testimonials-grid::-webkit-scrollbar,
+  .payment-grid::-webkit-scrollbar,
+  .schedule-usecases::-webkit-scrollbar,
+  .support-grid::-webkit-scrollbar,
+  .tech-grid::-webkit-scrollbar,
+  .values-grid::-webkit-scrollbar,
+  .perks-grid::-webkit-scrollbar,
+  .app-screen-grid::-webkit-scrollbar,
+  div[style*="grid-template-columns:repeat(3,1fr)"]::-webkit-scrollbar,
+  div[style*="grid-template-columns:repeat(4,1fr)"]::-webkit-scrollbar {
+    display: block !important;
+    height: 4px !important;
+  }
+
+  .how-grid::-webkit-scrollbar-track,
+  .safety-grid::-webkit-scrollbar-track,
+  .testimonials-grid::-webkit-scrollbar-track,
+  .payment-grid::-webkit-scrollbar-track,
+  .schedule-usecases::-webkit-scrollbar-track,
+  .support-grid::-webkit-scrollbar-track,
+  .tech-grid::-webkit-scrollbar-track,
+  .values-grid::-webkit-scrollbar-track,
+  .perks-grid::-webkit-scrollbar-track,
+  .app-screen-grid::-webkit-scrollbar-track,
+  div[style*="grid-template-columns:repeat(3,1fr)"]::-webkit-scrollbar-track,
+  div[style*="grid-template-columns:repeat(4,1fr)"]::-webkit-scrollbar-track {
+    background: rgba(249,92,0,0.12) !important;
+    border-radius: 99px !important;
+  }
+
+  .how-grid::-webkit-scrollbar-thumb,
+  .safety-grid::-webkit-scrollbar-thumb,
+  .testimonials-grid::-webkit-scrollbar-thumb,
+  .payment-grid::-webkit-scrollbar-thumb,
+  .schedule-usecases::-webkit-scrollbar-thumb,
+  .support-grid::-webkit-scrollbar-thumb,
+  .tech-grid::-webkit-scrollbar-thumb,
+  .values-grid::-webkit-scrollbar-thumb,
+  .perks-grid::-webkit-scrollbar-thumb,
+  .app-screen-grid::-webkit-scrollbar-thumb,
+  div[style*="grid-template-columns:repeat(3,1fr)"]::-webkit-scrollbar-thumb,
+  div[style*="grid-template-columns:repeat(4,1fr)"]::-webkit-scrollbar-thumb {
+    background: var(--saffron) !important;
+    border-radius: 99px !important;
+  }
+}
 </style>
 </head>
 <body>
